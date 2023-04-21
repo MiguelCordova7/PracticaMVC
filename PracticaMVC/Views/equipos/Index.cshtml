@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Tittle"] = "Home Page";
+}
+@{
+    IEnumerable<string> strLista = new List<string> { "LAPTOP", "IMPRESORA", "ACCESORIOS", "PROYECTORES" };
+}
+
+<div class=" text-center">
+    <h1 class=" display-4">Welcome</h1>
+    <h2>Mantenimiento de Equipos</h2>
+</div>
+
+<div class="row">
+    <div class="form-group">
+        <label>Nombre Equipo</label>
+
+        @Html.TextBox("txtNombre", "", new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("lblDescripcion", "Descripción")
+
+        @Html.TextArea("txaDescripcion", "", new {@class="form-group"})
+    </div>
+</div>
+
+<div class="form-group">
+         @Html.Label("lblModelo", "Modelo")
+
+         @Html.TextArea("txaModelo", "", new {@class="form-control"})
+</div>
+
+<div class="form-group">
+    @Html.Label("lblaniocompra","Año de la compra")
+
+    @Html.ListBox("Lista", new List<SelectListItem>{
+        new SelectListItem{Text="2005", Value="2005"},
+        new SelectListItem{Text="2006", Value="2006"},
+        new SelectListItem{Text="2007", Value="2007"}
+    })
+</div>
+
+<div class="form-group">
+    @Html.Label("lblcosto","Costo")
+
+    @Html.TextBox("txtCosto", "", new {@class="form-control"})
+</div>
+
+<div class="form-group">
+    @Html.Label("lblvidautil", "Vida Util")
+    
+    @Html.TextBox("txtvidautil", "", new {@class="form-control"})
+</div>
+
+<div class="form-group">
+    @Html.Label("lblTipoEquipo", "Tipo Equipo")
+
+    @Html.DropDownList("ddlTipoEquipo", new SelectList(strLista), "Seleccione un tipo")
+</div>
+
+<div class="form-group">
+    @Html.ActionLink("Guardar","Guadar", "Home")
+</div>
